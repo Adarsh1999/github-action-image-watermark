@@ -1,0 +1,9 @@
+name: "Image Watermarking github action"
+description: "Applies watermark on image "
+author: "Adarsh Gupta"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: "image"
+  color: "blue"

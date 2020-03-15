@@ -1,0 +1,16 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Self test
+        id: selftest
+        uses: Adarsh1999/github-action-image-watermark@master
+        with:
+          path: "sample.jpg"
+      - uses: actions/upload-artifact@v1
+        with:
+          name: styled_image
+          path: output_image
