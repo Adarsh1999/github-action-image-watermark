@@ -15,12 +15,12 @@ WATERMARK_WIDTH_RATIO = 7
 # See this for more -
 # https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python#outputs
 # https://docs.microsoft.com/en-us/python/api/azure-functions/azure.functions.out?view=azure-python
-def main(blobin: func.InputStream, blobout: func.Out[bytes], context: func.Context):
+def watermark():
  
     # Pillow calls blobin.read() so only
     # pass in the image object
-    input_image = blobin
-    watermark_image = f'{context.function_directory}/watermark.png'
+    input_image = f'./sample.jpg'
+    watermark_image = f'./watermark.png'
 
     try:
         base_image = Image.open(input_image)
@@ -78,5 +78,20 @@ def main(blobin: func.InputStream, blobout: func.Out[bytes], context: func.Conte
     #     blobout.set(file.read())
     #
     # Set blob content from byte array in memory
-    blobout.set(img_byte_arr.getvalue())
+    # blobout.set(img_byte_arr.getvalue())
+    final_image = img_byte_arr.getvalue()
 
+    return final_image
+def main():
+    output_image = watermark()
+    output_image = Image.open(io.BytesIO(output_image))
+
+    current_directory = os.getcwd()
+    os.mkdir('watermark_output')
+    output_directory = os.path.join(current_directory, r'watermark_output/output_image.jpg')
+    output_image.save(output_directory)
+
+
+if __name__ == "__main__":
+    main()
+        
