@@ -86,8 +86,8 @@ def watermark():
 def main():
     output_image = watermark()
     output_image = Image.open(io.BytesIO(output_image))
-      os.mkdir(os.path.abspath('watermark_output')) 
-   output_directory = os.path.abspath('watermark_output/output_image.jpg')
+    os.mkdir(os.path.abspath('watermark_output')) 
+    output_directory = os.path.abspath('watermark_output/output_image.jpg')
  
     output_image.save(output_directory)
 
