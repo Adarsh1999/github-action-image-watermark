@@ -19,8 +19,8 @@ def watermark():
  
     # Pillow calls blobin.read() so only
     # pass in the image object
-    input_image = f'./sample.jpg'
-    watermark_image = f'./watermark.png'
+    input_image = f'sample.jpg'
+    watermark_image = f'watermark.png'
 
     try:
         base_image = Image.open(input_image)
