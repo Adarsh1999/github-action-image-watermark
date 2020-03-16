@@ -13,7 +13,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: styled_image
-          path: output_image
+          path: watermark_output
       
         
     
