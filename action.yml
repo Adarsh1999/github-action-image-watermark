@@ -5,5 +5,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
 branding:
-  icon: "image"
+  icon: "box"
   color: "blue"
