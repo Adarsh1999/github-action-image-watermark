@@ -2,6 +2,7 @@ import logging
 import io
 import sys
 from PIL import Image
+import os
 
 # Final image composite size
 FINAL_COMPOSITE_MAX_HEIGHT = 700
