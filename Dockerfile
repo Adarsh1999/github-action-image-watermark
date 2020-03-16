@@ -1,8 +1,10 @@
 FROM ubuntu:18.04
 FROM python:3.7 
 
-ADD . /app
+
 WORKDIR /app
+ADD . /app
+RUN pip install pillow
 
 
 RUN chmod +x /app/main.py
