@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Prereq
+        run: xhost local:root
       - uses: actions/checkout@master
       - name: Self test
         id: selftest
@@ -14,8 +16,7 @@ jobs:
         with:
           name: styled_image
           path: output_image
-      - name: Prereq
-        run: xhost local:root
+      
         
     
       
